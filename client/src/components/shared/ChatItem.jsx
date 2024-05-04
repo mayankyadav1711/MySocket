@@ -16,6 +16,8 @@ const ChatItem = ({
   handleDeleteChat,
 }) => {
   return (
+    
+  
     <Link
       sx={{
         padding: "0",
@@ -31,18 +33,20 @@ const ChatItem = ({
           display: "flex",
           gap: "1rem",
           alignItems: "center",
-          backgroundColor: sameSender ? "black" : "unset",
+          backgroundColor: sameSender ? "rgb(38, 38, 38)" : "rgba(255, 255, 255,0.5)",
           color: sameSender ? "white" : "unset",
+          borderRadius: sameSender ? "15px" : "15px",
           position: "relative",
           padding: "1rem",
+          borderBottom: "1px solid #cfd8dc", // One-line separation
         }}
       >
         <AvatarCard avatar={avatar} />
 
         <Stack>
-          <Typography>{name}</Typography>
+          <Typography fontFamily="'SF Pro', sans-serif">{name}</Typography>
           {newMessageAlert && (
-            <Typography>{newMessageAlert.count} New Message</Typography>
+            <Typography fontFamily="'SF Pro', sans-serif"><span> </span>{newMessageAlert.count} New Message</Typography>
           )}
         </Stack>
 
@@ -62,6 +66,7 @@ const ChatItem = ({
         )}
       </motion.div>
     </Link>
+ 
   );
 };
 

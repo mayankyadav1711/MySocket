@@ -7,7 +7,6 @@ import React, {
 } from "react";
 import AppLayout from "../components/layout/AppLayout";
 import { IconButton, Skeleton, Stack } from "@mui/material";
-import { grayColor, orange } from "../constants/color";
 import {
   AttachFile as AttachFileIcon,
   Send as SendIcon,
@@ -188,11 +187,16 @@ const Chat = ({ chatId, user }) => {
         boxSizing={"border-box"}
         padding={"1rem"}
         spacing={"1rem"}
-        bgcolor={grayColor}
+        bgcolor={"white"}
         height={"90%"}
         sx={{
           overflowX: "hidden",
           overflowY: "auto",
+        }}
+        style={{
+          backgroundImage: `url('https://i.ibb.co/7GK6Gnr/gi-Dck-OUM5a.png')`,
+          backgroundSize: "cover",
+          backgroundColor: "rgb(240, 235, 228)",
         }}
       >
         {allMessages.map((i) => (
@@ -213,14 +217,15 @@ const Chat = ({ chatId, user }) => {
         <Stack
           direction={"row"}
           height={"100%"}
-          padding={"1rem"}
+          padding={"0.75rem"}
           alignItems={"center"}
           position={"relative"}
+          bgcolor={"rgb(240, 242, 245)"}
         >
           <IconButton
             sx={{
               position: "absolute",
-              left: "1.5rem",
+              left: "1rem",
               rotate: "30deg",
             }}
             onClick={handleFileOpen}
@@ -232,18 +237,18 @@ const Chat = ({ chatId, user }) => {
             placeholder="Type Message Here..."
             value={message}
             onChange={messageOnChange}
+            
           />
 
           <IconButton
             type="submit"
             sx={{
-              rotate: "-30deg",
-              bgcolor: orange,
+              bgcolor: "rgb(77, 127, 255)",
               color: "white",
               marginLeft: "1rem",
               padding: "0.5rem",
               "&:hover": {
-                bgcolor: "error.dark",
+                bgcolor: "rgb(39, 98, 253)",
               },
             }}
           >

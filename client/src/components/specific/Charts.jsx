@@ -11,12 +11,6 @@ import {
 } from "chart.js";
 import React from "react";
 import { Doughnut, Line } from "react-chartjs-2";
-import {
-  orange,
-  orangeLight,
-  purple,
-  purpleLight,
-} from "../../constants/color";
 import { getLast7Days } from "../../lib/features";
 
 ChartJS.register(
@@ -66,8 +60,8 @@ const LineChart = ({ value = [] }) => {
         data: value,
         label: "Messages",
         fill: true,
-        backgroundColor: purpleLight,
-        borderColor: purple,
+        backgroundColor: "#FAD02E", // Yellow
+        borderColor: "#FFC107", // Darker yellow
       },
     ],
   };
@@ -91,10 +85,10 @@ const DoughnutChart = ({ value = [], labels = [] }) => {
     datasets: [
       {
         data: value,
-        backgroundColor: [purpleLight, orangeLight],
-        hoverBackgroundColor: [purple, orange],
-        borderColor: [purple, orange],
-        offset: 40,
+        backgroundColor: ["#2196F3", "#4CAF50"], // Blue and green
+        hoverBackgroundColor: ["#0D47A1", "#388E3C"], // Darker shades of blue and green
+        borderColor: ["#1565C0", "#1B5E20"], // Darker shades of blue and green
+        offset: 20,
       },
     ],
   };

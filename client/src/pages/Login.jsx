@@ -28,6 +28,7 @@ import { usernameValidator } from "../utils/validators";
 import EmailIcon from "@mui/icons-material/Email";
 import PersonIcon from "@mui/icons-material/Person";
 import DescriptionIcon from "@mui/icons-material/Description";
+
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -119,14 +120,10 @@ const Login = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: "white",
-      }}
-    >
+    <div style={{ backgroundImage: "white" }}>
       <Container
         component={"main"}
-        maxWidth="lg" // Increase max width for better spacing
+        maxWidth="lg"
         sx={{
           height: "100vh",
           display: "flex",
@@ -148,91 +145,101 @@ const Login = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              width: "100%", // Ensure full width of container
-              marginBottom: 4, // Add margin bottom for spacing
+              width: "100%",
+              marginBottom: 4,
             }}
           >
-            {/* Left half for form */}
-            <Box sx={{ width: "50%", paddingRight: "10px" }}>
-              {" "}
-              {/* Added padding to the right */}
+            <Box
+              sx={{ width: { xs: "100%", sm: "50%" }, paddingRight: "10px" }}
+            >
               {isLogin ? (
                 <>
-                  {/* Logo */}
-
                   <Box
                     sx={{
                       display: "flex",
                       alignItems: "center",
                       marginBottom: "20px",
+                      textAlign:"center",
+                
                     }}
                   >
-                    {/* Logo */}
                     <img
                       src="https://i.ibb.co/r6TN6P0/removal-ai-45fccdd3-b23f-4238-8626-0cfb29c09e6b-png-clipart-computer-icons-graphics-whatsapp-whatsap.png"
                       alt="Logo"
-                      width="75px" // Adjust width as needed
-                      style={{ marginRight: "10px" }} // Add margin to the right for spacing
+                      width="75px"
+                      style={{ marginRight: "10px" }}
                     />
-
-                    {/* Website Name */}
                     <Typography variant="h4" fontWeight="bold">
-               Login
+                      Login
                     </Typography>
                   </Box>
-
-                
                   <form
                     style={{
                       width: "100%",
                       marginTop: "1rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
                     }}
                     onSubmit={handleLogin}
                   >
-                    <Stack spacing={2}>
-                      <TextField
-                        required
-                        fullWidth
-                        label="Username"
-                        margin="normal"
-                        variant="outlined"
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <AccountCircleIcon />
-                            </InputAdornment>
-                          ),
+                    <Stack
+                      position={"relative"}
+                      width={"8rem"}
+                      height={"8rem"}
+                      display={"flex"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                      marginBottom={"1rem"}
+                    >
+                      <Avatar
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
                         }}
-                        value={username.value}
-                        onChange={username.changeHandler}
-                      />
-                      <TextField
-                        required
-                        fullWidth
-                        label="Password"
-                        type="password"
-                        margin="normal"
-                        variant="outlined"
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <LockIcon />
-                            </InputAdornment>
-                          ),
-                        }}
-                        value={password.value}
-                        onChange={password.changeHandler}
+                        src="https://res.cloudinary.com/dzxhn37ae/image/upload/v1714806657/3f23b586-6630-4042-a810-52877b406d0f.jpg"
                       />
                     </Stack>
-
-                    <Box
+                    <TextField
+                      required
+                      fullWidth
+                      label="Username"
+                      margin="normal"
+                      variant="outlined"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <AccountCircleIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      value={username.value}
+                      onChange={username.changeHandler}
+                    />
+                    <TextField
+                      required
+                      fullWidth
+                      label="Password"
+                      type="password"
+                      margin="normal"
+                      variant="outlined"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <LockIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      value={password.value}
+                      onChange={password.changeHandler}
+                    />
+                    {/* <Box
                       display="flex"
                       justifyContent="space-between"
                       alignItems="center"
                       mt={2}
                     >
-                      {" "}
-                      {/* Add margin top */}
                       <FormControlLabel
                         control={<Checkbox color="primary" />}
                         label="Remember me"
@@ -240,130 +247,127 @@ const Login = () => {
                       <Link href="/forgot" variant="body2">
                         Forgot password?
                       </Link>
-                    </Box>
-
-                    <Button
-  sx={{
-    marginTop: "1rem",
-    padding: '10px 20px', // Adjust padding as needed
-    backgroundColor: "#075bd9",
-    color: '#fff', // Text color
-    fontWeight: 'bold', // Bold font
-    borderRadius: '8px', // Border radius
-    transition: 'background-color 0.3s ease', // Smooth transition on hover
-    "&:hover": {
-      backgroundColor: "#064dbd",
-    },
-  }}
-  variant="contained"
-  type="submit"
-  fullWidth
-  disabled={isLoading}
->
-  Log In
-</Button>
-
-
-                    <Typography textAlign="center" mt={2}>
-                      OR
+                    </Box> */}
+                    <div className="mb-4"></div>
+                    <button
+                      className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-blue-700 hover:bg-blue-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+                      type="submit"
+                      disabled={isLoading}
+                    >
+                      <svg
+                        class="w-6 h-6 -ml-2"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                        <circle cx="8.5" cy="7" r="4" />
+                        <path d="M20 8v6M23 11h-6" />
+                      </svg>
+                      <span className="ml-3 text-white">Login</span>
+                    </button>
+                    <Typography textAlign="center" m={"1rem"}>
+                    <span className="font-bold">OR</span>
                     </Typography>
-
-                    <Button
+                    <button
                       disabled={isLoading}
                       fullWidth
                       variant="text"
                       onClick={toggleLogin}
+                      class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
                     >
-                      Don't have an account? Sign up
-                    </Button>
+                      <span class="ml-4">Don't have an account? Sign Up</span>
+                    </button>
                   </form>
                 </>
               ) : (
                 <>
-                <Box
+                  <Box
                     sx={{
                       display: "flex",
                       alignItems: "center",
                       marginBottom: "20px",
                     }}
                   >
-                    {/* Logo */}
                     <img
                       src="https://i.ibb.co/r6TN6P0/removal-ai-45fccdd3-b23f-4238-8626-0cfb29c09e6b-png-clipart-computer-icons-graphics-whatsapp-whatsap.png"
                       alt="Logo"
-                      width="75px" // Adjust width as needed
-                      style={{ marginRight: "10px" }} // Add margin to the right for spacing
+                      width="75px"
+                      style={{ marginRight: "10px" }}
                     />
-
-                    {/* Website Name */}
                     <Typography variant="h4" fontWeight="bold">
-               Sign Up
+                      Sign Up
                     </Typography>
                   </Box>
-
                   <form
-                    style={{ width: "100%", marginTop: "1rem" }}
+                    style={{
+                      width: "100%",
+                      marginTop: "1rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
                     onSubmit={handleSignUp}
                   >
-                    <Stack spacing={2}>
-                      {/* Avatar input */}
-                      <Stack
-                        position={"relative"}
-                        width={"8rem"} // Decreased size
-                        height={"8rem"} // Decreased size
-                        margin={"auto"}
-                        display={"flex"} // Use flexbox
-                        alignItems={"center"} // Align items vertically
-                        justifyContent={"center"} // Center content horizontally
+                    <Stack
+                      position={"relative"}
+                      width={"8rem"}
+                      height={"8rem"}
+                      display={"flex"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                      marginBottom={"1rem"}
+                    >
+                      <Avatar
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                        }}
+                        src={avatar.preview}
+                      />
+                      <IconButton
+                        sx={{
+                          position: "absolute",
+                          bottom: "0",
+                          right: "0",
+                          color: "white",
+                          bgcolor: "rgba(0,0,0,0.5)",
+                          ":hover": {
+                            bgcolor: "rgba(0,0,0,0.7)",
+                          },
+                        }}
+                        component="label"
                       >
-                        <Avatar
-                          sx={{
-                            width: "100%", // Take up full width of stack
-                            height: "100%", // Take up full height of stack
-                            objectFit: "contain",
-                          }}
-                          src={avatar.preview}
-                        />
-
-                        {/* Avatar upload button */}
-                        <IconButton
-                          sx={{
-                            position: "absolute",
-                            bottom: "0",
-                            right: "0",
-                            color: "white",
-                            bgcolor: "rgba(0,0,0,0.5)",
-                            ":hover": {
-                              bgcolor: "rgba(0,0,0,0.7)",
-                            },
-                          }}
-                          component="label"
-                        >
-                          <>
-                            <CameraAltIcon />
-                            <VisuallyHiddenInput
-                              type="file"
-                              onChange={avatar.changeHandler}
-                            />
-                          </>
-                        </IconButton>
-                      </Stack>
-
-                      {avatar.error && (
-                        <Typography
-                          m={"1rem auto"}
-                          width={"fit-content"}
-                          display={"block"}
-                          color="error"
-                          variant="caption"
-                        >
-                          {avatar.error}
-                        </Typography>
-                      )}
-                      {/* Other text fields with icons */}
+                        <>
+                          <CameraAltIcon />
+                          <VisuallyHiddenInput
+                            type="file"
+                            onChange={avatar.changeHandler}
+                          />
+                        </>
+                      </IconButton>
+                    </Stack>
+                    {avatar.error && (
+                      <Typography
+                        m={"1rem auto"}
+                        width={"fit-content"}
+                        display={"block"}
+                        color="error"
+                        variant="caption"
+                      >
+                        {avatar.error}
+                      </Typography>
+                    )}
+                    <Stack
+                      direction="row"
+                      spacing={2}
+                      sx={{ marginBottom: "1rem" }}
+                    >
                       <TextField
                         required
-                        fullWidth
                         label="Name"
                         margin="normal"
                         variant="outlined"
@@ -379,7 +383,6 @@ const Login = () => {
                       />
                       <TextField
                         required
-                        fullWidth
                         label="Bio"
                         margin="normal"
                         variant="outlined"
@@ -393,9 +396,14 @@ const Login = () => {
                         value={bio.value}
                         onChange={bio.changeHandler}
                       />
+                    </Stack>
+                    <Stack
+                      direction="row"
+                      spacing={2}
+                      sx={{ marginBottom: "1rem" }}
+                    >
                       <TextField
                         required
-                        fullWidth
                         label="Username"
                         margin="normal"
                         variant="outlined"
@@ -416,7 +424,6 @@ const Login = () => {
                       )}
                       <TextField
                         required
-                        fullWidth
                         label="Password"
                         type="password"
                         margin="normal"
@@ -433,46 +440,57 @@ const Login = () => {
                       />
                     </Stack>
 
-                    {/* Submit button and other options */}
-                    <Button
-                      sx={{ marginTop: "1rem" }}
-                      variant="contained"
-                      color="primary"
+                    <button
+                      className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-blue-700 hover:bg-blue-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
                       type="submit"
-                      fullWidth
                       disabled={isLoading}
                     >
-                      Sign Up
-                    </Button>
-                    <Typography textAlign={"center"} m={"1rem"}>
-                      OR
+                      <svg
+                        class="w-6 h-6 -ml-2"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                        <circle cx="8.5" cy="7" r="4" />
+                        <path d="M20 8v6M23 11h-6" />
+                      </svg>
+                      <span className="ml-3 text-white">Sign up</span>
+                    </button>
+                    <Typography textAlign="center" m={"1rem"} >
+                     <span className="font-bold">OR</span>
                     </Typography>
-                    <Button
+                    {/* <Button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                      Login Instead
+                    </Button> */}
+
+                    <button
                       disabled={isLoading}
                       fullWidth
                       variant="text"
                       onClick={toggleLogin}
+                      class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
                     >
-                      Login Instead
-                    </Button>
+                      <span class="ml-4">Login Instead</span>
+                    </button>
                   </form>
                 </>
               )}
             </Box>
-
-            {/* Right half for image */}
             <Box
               sx={{
-                width: "50%", // Right half width
-                paddingLeft: "10px", // Added padding to the left
-                display: { xs: "none", sm: "block" }, // Hide on small devices
+                width: { xs: "0%", sm: "50%" },
+                paddingLeft: "10px",
+                display: { xs: "none", sm: "block" },
               }}
             >
-              {/* Image */}
               <img
                 src="https://img.freepik.com/free-vector/conversation-concept-illustration_114360-1305.jpg?t=st=1714817710~exp=1714821310~hmac=812f093dd2dd96253d4b67f329c7b68de3ea93d36a7c13ffc47cb55f231c0bd9&w=740"
                 alt="Login Image"
                 width="100%"
+          
               />
             </Box>
           </Box>

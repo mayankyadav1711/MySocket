@@ -148,7 +148,8 @@ const AppLayout = () => (WrappedComponent) => {
             sx={{
               display: { xs: "none", md: "block" },
               padding: "2rem",
-              bgcolor: "rgba(0,0,0,0.85)",
+              backgroundColor: "rgb(232, 230, 230)",
+              backgroundImage: `url('https://i.ibb.co/7GK6Gnr/gi-Dck-OUM5a.png')`,
             }}
           >
             <Profile user={user} />

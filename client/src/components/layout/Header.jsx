@@ -7,6 +7,7 @@ import {
   Toolbar,
   Tooltip,
   Typography,
+  Stack
 } from "@mui/material";
 import React, { Suspense, lazy, useState } from "react";
 import { orange } from "../../constants/color";
@@ -18,7 +19,7 @@ import {
   Logout as LogoutIcon,
   Notifications as NotificationsIcon,
 } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../constants/config";
 import toast from "react-hot-toast";
@@ -74,23 +75,32 @@ const Header = () => {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }} height={"4rem"}>
+      <Box
+        sx={{
+          backgroundImage: `url('https://i.ibb.co/7GK6Gnr/gi-Dck-OUM5a.png')`, // Background image
+          backgroundColor: "rgb(244, 245, 243)", // Background color
+          flexGrow: 1,
+          height: "4rem", // Adjust height as needed
+          
+        }}
+      >
         <AppBar
           position="static"
           sx={{
-            bgcolor: orange,
+            bgcolor: "transparent",
           }}
         >
           <Toolbar>
-            <Typography
-              variant="h6"
-              sx={{
-                display: { xs: "none", sm: "block" },
-              }}
-            >
-              Chattu
-            </Typography>
-
+            <Link to="/"> 
+              <Stack direction="row" alignItems="center" spacing={1}>
+                <img
+                  src="https://i.ibb.co/8b7nJ9h/removal-ai-b591e62e-b607-4240-8e77-58553b626d26-speech-bubble-chat-talk-communication-icon-3d-backgr.png"
+                  alt="Logo"
+                  width="80px" // Adjust the width as needed
+                  height="80px" // Adjust the height as needed
+                />
+              </Stack>
+            </Link>
             <Box
               sx={{
                 display: { xs: "block", sm: "none" },
@@ -108,32 +118,32 @@ const Header = () => {
             <Box>
               <IconBtn
                 title={"Search"}
-                icon={<SearchIcon />}
+                icon={<SearchIcon sx={{ color: "rgb(85, 102, 112)" }} />}
                 onClick={openSearch}
               />
 
               <IconBtn
                 title={"New Group"}
-                icon={<AddIcon />}
+                icon={<AddIcon sx={{ color: "rgb(85, 102, 112)" }} />}
                 onClick={openNewGroup}
               />
 
               <IconBtn
                 title={"Manage Groups"}
-                icon={<GroupIcon />}
+                icon={<GroupIcon sx={{ color: "rgb(85, 102, 112)" }} />}
                 onClick={navigateToGroup}
               />
 
               <IconBtn
                 title={"Notifications"}
-                icon={<NotificationsIcon />}
+                icon={<NotificationsIcon sx={{ color: "rgb(85, 102, 112)" }} />}
                 onClick={openNotification}
                 value={notificationCount}
               />
 
               <IconBtn
                 title={"Logout"}
-                icon={<LogoutIcon />}
+                icon={<LogoutIcon sx={{ color: "rgb(85, 102, 112)" }} />}
                 onClick={logoutHandler}
               />
             </Box>

@@ -1,5 +1,5 @@
 import { useInputValidation } from "6pp";
-import { Search as SearchIcon } from "@mui/icons-material";
+import { Search as SearchIcon, AddCircleOutline as AddIcon } from "@mui/icons-material"; // Added AddIcon
 import {
   Dialog,
   DialogTitle,
@@ -7,6 +7,9 @@ import {
   List,
   Stack,
   TextField,
+  Typography, // Added Typography
+  Button, // Added Button
+  Divider, // Added Divider
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -56,7 +59,7 @@ const Search = () => {
       <Stack p={"2rem"} direction={"column"} width={"25rem"}>
         <DialogTitle textAlign={"center"}>Find People</DialogTitle>
         <TextField
-          label=""
+          label="Search"
           value={search.value}
           onChange={search.changeHandler}
           variant="outlined"
@@ -69,7 +72,10 @@ const Search = () => {
             ),
           }}
         />
-
+        <Typography variant="body2" color="text.secondary" mt={1}>
+          Add new friends by searching for their usernames.
+        </Typography>
+        <Divider sx={{ mt: 2, mb: 1 }} />
         <List>
           {users.map((i) => (
             <UserItem
@@ -80,6 +86,13 @@ const Search = () => {
             />
           ))}
         </List>
+        <Divider sx={{ mt: 2, mb: 1 }} />
+        <Stack direction="row" alignItems="center" justifyContent="center" spacing={2}>
+         
+          <Button variant="outlined" onClick={searchCloseHandler} size="large">
+            Close
+          </Button>
+        </Stack>
       </Stack>
     </Dialog>
   );

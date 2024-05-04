@@ -22,10 +22,8 @@ import {
   CurveButton,
   SearchField,
 } from "../../components/styles/StyledComponents";
-import { matBlack } from "../../constants/color";
-import { server } from "../../constants/config";
 import { useErrors } from "../../hooks/hook";
-
+import { server } from "../../constants/config";
 const Dashboard = () => {
   const { loading, data, error } = useFetchData(
     `${server}/api/v1/admin/stats`,
@@ -134,7 +132,7 @@ const Dashboard = () => {
             <Paper
               elevation={3}
               sx={{
-                padding: "1rem ",
+                padding: "1rem",
                 borderRadius: "1rem",
                 display: "flex",
                 justifyContent: "center",
@@ -142,6 +140,9 @@ const Dashboard = () => {
                 width: { xs: "100%", sm: "50%" },
                 position: "relative",
                 maxWidth: "25rem",
+              
+                boxShadow:
+                  "20px 20px 60px #bcbcbc, ",
               }}
             >
               <DoughnutChart
@@ -151,19 +152,6 @@ const Dashboard = () => {
                   stats?.groupsCount || 0,
                 ]}
               />
-
-              <Stack
-                position={"absolute"}
-                direction={"row"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                spacing={"0.5rem"}
-                width={"100%"}
-                height={"100%"}
-              >
-                <GroupIcon /> <Typography>Vs </Typography>
-                <PersonIcon />
-              </Stack>
             </Paper>
           </Stack>
 
@@ -175,36 +163,26 @@ const Dashboard = () => {
 };
 
 const Widget = ({ title, value, Icon }) => (
-  <Paper
-    elevation={3}
-    sx={{
-      padding: "2rem",
-      margin: "2rem 0",
-      borderRadius: "1.5rem",
-      width: "20rem",
-    }}
+  <div
+    className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg w-full p-6 pt-9 rounded-3xl shadow-md flex flex-col items-center justify-center scale-105"
   >
-    <Stack alignItems={"center"} spacing={"1rem"}>
-      <Typography
-        sx={{
-          color: "rgba(0,0,0,0.7)",
-          borderRadius: "50%",
-          border: `5px solid ${matBlack}`,
-          width: "5rem",
-          height: "5rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        {value}
-      </Typography>
-      <Stack direction={"row"} spacing={"1rem"} alignItems={"center"}>
-        {Icon}
-        <Typography>{title}</Typography>
-      </Stack>
-    </Stack>
-  </Paper>
+    <button
+      type="button"
+      style={{
+        color: "#000", // Change the color accordingly
+        backgroundColor: "white",
+        boxShadow: `inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1)`,
+      }}
+      className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl flex items-center justify-center"
+    >
+      {Icon}
+    </button>
+    <p className="mt-3 text-black text-xl font-semibold">{value}</p>
+    <p className="text-sm font-bold text-gray-400 capitalize mt-1">
+      {title}
+    </p>
+  </div>
 );
+
 
 export default Dashboard;
