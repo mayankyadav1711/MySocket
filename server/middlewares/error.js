@@ -1,5 +1,7 @@
 import { envMode } from "../app.js";
 
+
+//This middleware function is designed to handle errors that occur during request processing
 const errorMiddleware = (err, req, res, next) => {
   err.message ||= "Internal Server Error";
   err.statusCode ||= 500;
@@ -28,8 +30,11 @@ const errorMiddleware = (err, req, res, next) => {
   return res.status(err.statusCode).json(response);
 };
 
+// This function is a higher-order function that wraps asynchronous middleware functions with error handling
+// It takes another function (passedFunc) as input and returns an asynchronous middleware function
 const TryCatch = (passedFunc) => async (req, res, next) => {
   try {
+    // Inside this wrapper function, it executes passedFunc and awaits its completion
     await passedFunc(req, res, next);
   } catch (error) {
     next(error);

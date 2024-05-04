@@ -8,19 +8,24 @@ import { cookieOptions } from "../utils/features.js";
 import { adminSecretKey } from "../app.js";
 
 const adminLogin = TryCatch(async (req, res, next) => {
+  // Retrieve the secret key from the request body
   const { secretKey } = req.body;
 
+  // Check if the secret key matches the admin secret key
   const isMatched = secretKey === adminSecretKey;
 
+  // If the keys don't match, throw an error
   if (!isMatched) return next(new ErrorHandler("Invalid Admin Key", 401));
 
+  // If the keys match, generate a JWT token
   const token = jwt.sign(secretKey, process.env.JWT_SECRET);
 
+  // Set the token in a cookie and send a success response
   return res
     .status(200)
     .cookie("admin-token", token, {
       ...cookieOptions,
-      maxAge: 1000 * 60 * 15,
+      maxAge: 1000 * 60 * 15, // cookie expiry time : 15 minutes
     })
     .json({
       success: true,
@@ -29,11 +34,12 @@ const adminLogin = TryCatch(async (req, res, next) => {
 });
 
 const adminLogout = TryCatch(async (req, res, next) => {
+  // Clear the admin token cookie and send a success response
   return res
     .status(200)
     .cookie("admin-token", "", {
       ...cookieOptions,
-      maxAge: 0,
+      maxAge: 0, // Expire the cookie immediately
     })
     .json({
       success: true,
@@ -42,19 +48,21 @@ const adminLogout = TryCatch(async (req, res, next) => {
 });
 
 const getAdminData = TryCatch(async (req, res, next) => {
+  // Send a success response indicating admin status
   return res.status(200).json({
     admin: true,
   });
 });
 
 const allUsers = TryCatch(async (req, res) => {
+  // Fetch all users from the database
   const users = await User.find({});
 
   const transformedUsers = await Promise.all(
     users.map(async ({ name, username, avatar, _id }) => {
       const [groups, friends] = await Promise.all([
-        Chat.countDocuments({ groupChat: true, members: _id }),
-        Chat.countDocuments({ groupChat: false, members: _id }),
+        Chat.countDocuments({ groupChat: true, members: _id }), // count no of groups
+        Chat.countDocuments({ groupChat: false, members: _id }), // count no. of non groups (normal chat)
       ]);
 
       return {
@@ -75,19 +83,20 @@ const allUsers = TryCatch(async (req, res) => {
 });
 
 const allChats = TryCatch(async (req, res) => {
+  // Fetch all chats from the database
   const chats = await Chat.find({})
     .populate("members", "name avatar")
     .populate("creator", "name avatar");
 
   const transformedChats = await Promise.all(
     chats.map(async ({ members, _id, groupChat, name, creator }) => {
-      const totalMessages = await Message.countDocuments({ chat: _id });
+      const totalMessages = await Message.countDocuments({ chat: _id }); // total no. of chats
 
       return {
         _id,
         groupChat,
         name,
-        avatar: members.slice(0, 3).map((member) => member.avatar.url),
+        avatar: members.slice(0, 3).map((member) => member.avatar.url), // only 3 avatars for a group ones
         members: members.map(({ _id, name, avatar }) => ({
           _id,
           name,
@@ -110,6 +119,7 @@ const allChats = TryCatch(async (req, res) => {
 });
 
 const allMessages = TryCatch(async (req, res) => {
+  // Fetch all messages from the database
   const messages = await Message.find({})
     .populate("sender", "name avatar")
     .populate("chat", "groupChat");
@@ -137,6 +147,7 @@ const allMessages = TryCatch(async (req, res) => {
 });
 
 const getDashboardStats = TryCatch(async (req, res) => {
+  // Fetch statistics data from the database
   const [groupsCount, usersCount, messagesCount, totalChatsCount] =
     await Promise.all([
       Chat.countDocuments({ groupChat: true }),
@@ -147,6 +158,7 @@ const getDashboardStats = TryCatch(async (req, res) => {
 
   const today = new Date();
 
+  // (Generate messages chart data for the last 7 days)
   const last7Days = new Date();
   last7Days.setDate(last7Days.getDate() - 7);
 

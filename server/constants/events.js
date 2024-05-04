@@ -28,3 +28,13 @@ export {
   CHAT_LEAVED,
   ONLINE_USERS,
 };
+
+// ALERT: Generic alert event.
+// REFETCH_CHATS: Event to trigger a refresh of chat data.
+// NEW_ATTACHMENT: Event for receiving a new attachment in a chat.
+// NEW_MESSAGE_ALERT: Event to alert users about a new message.
+// NEW_REQUEST: Event for receiving a new request (possibly from a user).
+// NEW_MESSAGE: Event for receiving a new message in a chat.
+// START_TYPING and STOP_TYPING: Events for indicating when a user starts or stops typing in a chat.
+// CHAT_JOINED and CHAT_LEAVED: Events for notifying when a user joins or leaves a chat.
+// ONLINE_USERS: Event for updating the list of online users in real-time.
