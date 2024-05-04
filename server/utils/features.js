@@ -13,17 +13,17 @@ const cookieOptions = {
 
 const connectDB = (uri) => {
   mongoose
-    .connect(uri, { dbName: "Chattu" })
-    .then((data) => console.log(`Connected to DB: ${data.connection.host}`))
+    .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, dbName: "test" })
+    .then(() => console.log(`Connected to DB: ${mongoose.connection.host}`))
     .catch((err) => {
-      throw err;
+      console.error('Error connecting to database:', err.message);
     });
 };
 
 const sendToken = (res, user, code, message) => {
   const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
 
-  return res.status(code).cookie("chattu-token", token, cookieOptions).json({
+  return res.status(code).cookie("my-token", token, cookieOptions).json({
     success: true,
     user,
     message,
