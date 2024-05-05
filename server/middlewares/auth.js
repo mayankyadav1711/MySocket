@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"; // library for generating and verifying json web tokens (JWT)
 import { ErrorHandler } from "../utils/utility.js"; // custom wrror handler
-import { adminSecretKey } from "../app.js"; // secret key for admin login
+import { adminSecretKey } from "../index.js"; // secret key for admin login
 import { TryCatch } from "./error.js"; // helper function to wrap async middleware functions with error handling
 import { MY_TOKEN } from "../constants/config.js"; // contant representing token
 import { User } from "../models/user.js"; // user model
