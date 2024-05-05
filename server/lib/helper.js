@@ -1,4 +1,5 @@
-import { userSocketIDs } from "../index.js";
+import { userSocketIDs } from "../";
+
 
 // Function to get the other member in a chat
 export const getOtherMember = (members, userId) =>

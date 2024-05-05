@@ -1,4 +1,4 @@
-import { envMode } from "../index.js";
+import { envMode } from "../";
 
 
 //This middleware function is designed to handle errors that occur during request processing
