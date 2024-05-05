@@ -143,4 +143,10 @@ io.on("connection", (socket) => {
 
 app.use(errorMiddleware);
 
-export { server };
+function startServer() {
+  server.listen(port, () => {
+    console.log(`Server is running on port ${port} in ${envMode} Mode`);
+  });
+}
+
+startServer();
