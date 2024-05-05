@@ -150,3 +150,14 @@ function startServer() {
 }
 
 startServer();
+
+export {
+  app,
+  server,
+  io,
+  adminSecretKey,
+  userSocketIDs,
+  onlineUsers,
+  connectDB,
+  cloudinary
+};
