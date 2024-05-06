@@ -8,10 +8,13 @@ const Home = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url("https://i.ibb.co/Vq8K2kZ/Picsart-24-05-04-23-36-54-582.png")`, // Use the imported SVG file as background image
-        backgroundColor: "rgb(255, 255, 255)", // Replace with your desired background color
+
+        // https://i.ibb.co/Bwp0pt4/Picsart-24-05-06-12-26-52-604.jpg
+        backgroundImage: `url("https://i.ibb.co/6W4L0gQ/Picsart-24-05-06-12-27-03-543.png")`, // Use the imported SVG file as background image
+        backgroundColor: "#f5f5dc63", // Replace with your desired background color
         backgroundSize: "cover", // Cover the entire box
         backgroundRepeat: "no-repeat", // Do not repeat the image
+  
         height: "100%",
       }}
     >

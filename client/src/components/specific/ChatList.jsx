@@ -24,7 +24,8 @@ const ChatList = ({
   );
 
   return (
-    <>
+
+       <div style={{ position: "relative", width: "100%", height: "100vh", backgroundColor: "rgb(232, 230, 230)", backgroundImage:`url("https://i.ibb.co/7GK6Gnr/gi-Dck-OUM5a.png")` }}>
       <TextField
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
@@ -35,14 +36,15 @@ const ChatList = ({
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <IconButton>
-                <SearchIcon />
+              <IconButton sx={{ backgroundColor: "white" }}>
+                <SearchIcon  />
               </IconButton>
             </InputAdornment>
           ),
         }}
         sx={{
-          backgroundColor: "white",
+          backgroundColor: "rgb(232, 230, 230)",
+          backgroundImage:`url("https://i.ibb.co/7GK6Gnr/gi-Dck-OUM5a.png")`,
           "& .MuiOutlinedInput-root": {
             borderRadius: "5px",
             "& fieldset": {
@@ -56,7 +58,7 @@ const ChatList = ({
             },
           },
           "& .MuiOutlinedInput-input": {
-            backgroundColor: "#E0E0E0", // Grey background color for typing area
+            backgroundColor: "white", // Grey background color for typing area
             borderRadius: "5px",
             padding: "10px",
             marginRight: "12px",
@@ -72,7 +74,8 @@ const ChatList = ({
           backgroundImage: `url('https://i.ibb.co/7GK6Gnr/gi-Dck-OUM5a.png')`, // Replace 'your-background-image-url' with the actual URL
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundColor: "rgb(244, 245, 243)", // Add a semi-transparent black background color
+          borderRadius: "10px",
+          backgroundColor: "rgb(232, 230, 230)", // Add a semi-transparent black background color
           padding: "20px", // Add padding to create space between the background and the content
         }}
       >
@@ -103,7 +106,7 @@ const ChatList = ({
           );
         })}
       </Stack>
-    </>
+    </div>
   );
 };
 

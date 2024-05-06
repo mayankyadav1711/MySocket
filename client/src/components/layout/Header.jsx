@@ -7,7 +7,7 @@ import {
   Toolbar,
   Tooltip,
   Typography,
-  Stack
+  Stack,
 } from "@mui/material";
 import React, { Suspense, lazy, useState } from "react";
 import { orange } from "../../constants/color";
@@ -78,10 +78,9 @@ const Header = () => {
       <Box
         sx={{
           backgroundImage: `url('https://i.ibb.co/7GK6Gnr/gi-Dck-OUM5a.png')`, // Background image
-          backgroundColor: "rgb(244, 245, 243)", // Background color
+          backgroundColor: "white", // Background color
           flexGrow: 1,
           height: "4rem", // Adjust height as needed
-          
         }}
       >
         <AppBar
@@ -91,10 +90,10 @@ const Header = () => {
           }}
         >
           <Toolbar>
-            <Link to="/"> 
+            <Link to="/">
               <Stack direction="row" alignItems="center" spacing={1}>
                 <img
-                  src="https://i.ibb.co/8b7nJ9h/removal-ai-b591e62e-b607-4240-8e77-58553b626d26-speech-bubble-chat-talk-communication-icon-3d-backgr.png"
+                  src="https://i.ibb.co/3v9LyRM/bgicon-voicecall-2x-d973443.png"
                   alt="Logo"
                   width="80px" // Adjust the width as needed
                   height="80px" // Adjust the height as needed

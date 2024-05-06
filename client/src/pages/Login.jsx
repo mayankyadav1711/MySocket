@@ -120,7 +120,10 @@ const Login = () => {
   };
 
   return (
-    <div style={{ backgroundImage: "white" }}>
+    <div style={{ 
+      backgroundImage: 'url("https://i.ibb.co/7GK6Gnr/gi-Dck-OUM5a.png")',
+      backgroundColor: "rgb(240, 235, 228)"
+    }}>
       <Container
         component={"main"}
         maxWidth="lg"
@@ -164,7 +167,7 @@ const Login = () => {
                     }}
                   >
                     <img
-                      src="https://i.ibb.co/r6TN6P0/removal-ai-45fccdd3-b23f-4238-8626-0cfb29c09e6b-png-clipart-computer-icons-graphics-whatsapp-whatsap.png"
+                      src="https://i.ibb.co/3v9LyRM/bgicon-voicecall-2x-d973443.png"
                       alt="Logo"
                       width="75px"
                       style={{ marginRight: "10px" }}
@@ -292,7 +295,7 @@ const Login = () => {
                     }}
                   >
                     <img
-                      src="https://i.ibb.co/r6TN6P0/removal-ai-45fccdd3-b23f-4238-8626-0cfb29c09e6b-png-clipart-computer-icons-graphics-whatsapp-whatsap.png"
+                      src="https://i.ibb.co/3v9LyRM/bgicon-voicecall-2x-d973443.png"
                       alt="Logo"
                       width="75px"
                       style={{ marginRight: "10px" }}
