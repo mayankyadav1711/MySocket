@@ -1,8 +1,12 @@
-# React + Vite
+# Chat Application - MERN Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption><p>Chat Application - MERN Stack</p></figcaption></figure>
 
-Currently, two official plugins are available:
+This Chat Application is a web-based platform designed to facilitate real-time communication between users. It allows users to create accounts, join chat rooms, send messages, real time file transfer, and interact with other users in a seamless and intuitive manner. This document provides an overview of the application's features, architecture, and usage instructions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+##
+
+
+

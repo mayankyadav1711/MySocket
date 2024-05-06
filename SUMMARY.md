@@ -1,3 +1,7 @@
 # Table of contents
 
-* [React + Vite](README.md)
+* [Chat Application - MERN Stack](README.md)
+* [Features](features.md)
+* [Architecture](architecture.md)
+* [Screenshots](screenshots.md)
+* [Codebase](codebase.md)
