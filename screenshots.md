@@ -1,26 +1,26 @@
 # Screenshots
 
-### Login
+## Login
 
 <figure><img src=".gitbook/assets/Screenshot 2024-05-06 145049.png" alt=""><figcaption></figcaption></figure>
 
-### Sign Up
+## Sign Up
 
 <figure><img src=".gitbook/assets/Screenshot 2024-05-06 140503.png" alt=""><figcaption></figcaption></figure>
 
-### Home Screen
+## Home Screen
 
 <figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-### Chat Screen
+## Chat Screen
 
 <figure><img src=".gitbook/assets/Screenshot 2024-05-06 140549.png" alt=""><figcaption></figcaption></figure>
 
-### Create Group
+## Create Group
 
 <figure><img src=".gitbook/assets/Screenshot 2024-05-06 140618.png" alt=""><figcaption></figcaption></figure>
 
-### Manage Groups
+## Manage Groups
 
 <figure><img src=".gitbook/assets/Screenshot 2024-05-06 140717 (1).png" alt=""><figcaption></figcaption></figure>
 
